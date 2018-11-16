@@ -11,10 +11,10 @@ This framework is very easy to use that you only need to privide two json file. 
 
 For the data json file, your format must be met that each line represents one data. So your data json file have lots of json lines.
 sample_iris.json:
-![data_simple.png](resources/6CF6CF804EDA5EBA3BB5BDE9BEB0495A.png =1109x274)
+![data_simple.png](resources/data_simple.png)
 
 For config json file, it has 5 attributes in this file.
-![config_simple.png](resources/869A577590115698848F1AF97EBF8CA1.png =123x96)
+![config_simple.png](resources/config_simple.png)
 key (x,y,type,body) is corresponding to the relevant name in the data json file
 key (has_type) is whether the data json need to consider type or not, we do not care about the value from type.
 
@@ -27,7 +27,7 @@ python3 savizBash.py sample_iris.json savizConfig.json
 In here, we provide iris sample data -- simple_iris.json. And also we provide simple config file -- savizConfig.json.
 
 The result from simple_iris.json
-![simple_iris_result.png](resources/B734FC1F2BB97F7C6A2520852A848B5E.png =1419x742)
+![simple_iris_result.png](resources/simple_iris_result.png)
 
 ## Requirements
 
@@ -42,7 +42,7 @@ pip3 install bokeh
 ```
 
 And in you terminal, you can check whether the installation is successful in terminal.
-![bokeh_version.png](resources/09D9A7C0CFD680368C55D6C7B76915DB.png =409x31)
+![bokeh_version.png](resources/bokeh_version.png)
 The version of bokeh we use is 0.13.0
 
 
