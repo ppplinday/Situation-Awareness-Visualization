@@ -21,6 +21,12 @@ For config json file, it has 5 attributes in this file.
 key (x,y,type,body) is corresponding to the relevant name in the data json file
 key (has_type) is whether the data json need to consider type or not, we do not care about the value from type.
 
+Then git clone this project:
+```
+git clone https://github.com/ppplinday/Situation-Awareness-Visualization.git
+```
+and go into the file.
+
 So that in the terminal, we need to use python3 to run our bash python file:
 ```
 python3 savizBash.py sample_iris.json savizConfig.json
