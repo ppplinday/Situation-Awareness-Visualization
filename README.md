@@ -10,11 +10,14 @@ In order to help our research team to evaluation efficient. This tool was implem
 This framework is very easy to use that you only need to privide two json file. One is your data json file, another is config json file.
 
 For the data json file, your format must be met that each line represents one data. So your data json file have lots of json lines.
+
 sample_iris.json:
 ![data_simple.png](resources/data_simple.png)
 
 For config json file, it has 5 attributes in this file.
+
 ![config_simple.png](resources/config_simple.png)
+
 key (x,y,type,body) is corresponding to the relevant name in the data json file
 key (has_type) is whether the data json need to consider type or not, we do not care about the value from type.
 
@@ -43,6 +46,7 @@ pip3 install bokeh
 
 And in you terminal, you can check whether the installation is successful in terminal.
 ![bokeh_version.png](resources/bokeh_version.png)
+
 The version of bokeh we use is 0.13.0
 
 
