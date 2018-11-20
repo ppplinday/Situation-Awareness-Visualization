@@ -56,7 +56,7 @@ The result from simple_iris.json
 Before using this framework, you need to install bokeh framework. You can install bokeh follow the [guide](https://bokeh.pydata.org/en/latest/docs/installation.html), or you can just install in the terminal:
 
 ```
-pip3 install bokeh
+$ pip3 install bokeh
 ```
 
 And in you terminal, you can check whether the installation is successful in terminal.
