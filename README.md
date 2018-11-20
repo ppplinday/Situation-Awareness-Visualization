@@ -24,6 +24,7 @@ key (has_type) is whether the data json need to consider type or not, we do not 
 Then git clone this project:
 ```
 git clone https://github.com/ppplinday/Situation-Awareness-Visualization.git
+cd Situation-Awareness-Visualization.git
 ```
 and go into the file.
 
@@ -51,6 +52,10 @@ pip3 install bokeh
 ```
 
 And in you terminal, you can check whether the installation is successful in terminal.
+```
+bokeh -v
+0.13.0
+```
 ![bokeh_version.png](resources/bokeh_version.png)
 
 The version of bokeh we use is 0.13.0
