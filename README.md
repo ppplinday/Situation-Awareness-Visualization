@@ -16,21 +16,29 @@ sample_iris.json:
 
 For config json file, it has 5 attributes in this file.
 
-![config_simple.png](resources/config_simple.png)
+```
+{
+"x": "x",
+"y": "y",
+"has_type": true,
+"type": "type",
+"body": "body"
+}
+```
 
 key (x,y,type,body) is corresponding to the relevant name in the data json file
 key (has_type) is whether the data json need to consider type or not, we do not care about the value from type.
 
 Then git clone this project:
 ```
-git clone https://github.com/ppplinday/Situation-Awareness-Visualization.git
-cd Situation-Awareness-Visualization.git
+$ git clone https://github.com/ppplinday/Situation-Awareness-Visualization.git
+$ cd Situation-Awareness-Visualization.git
 ```
 and go into the file.
 
 So that in the terminal, we need to use python3 to run our bash python file:
 ```
-python3 savizBash.py sample_iris.json savizConfig.json
+$ python3 savizBash.py sample_iris.json savizConfig.json
 ```
 
 ## Result
@@ -53,10 +61,9 @@ pip3 install bokeh
 
 And in you terminal, you can check whether the installation is successful in terminal.
 ```
-bokeh -v
-0.13.0
+$ bokeh -v
+$ 0.13.0
 ```
-![bokeh_version.png](resources/bokeh_version.png)
 
 The version of bokeh we use is 0.13.0
 
