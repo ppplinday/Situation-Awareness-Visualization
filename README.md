@@ -1,6 +1,6 @@
 # Situation Awareness Visualization (SAVIZ)
 
-Situation Awareness Visualization (SAVIZ) is a tool to visualization, implemented by bokeh under ISI. 
+Situation Awareness Visualization (SAVIZ) is a tool to visualization, implemented under ISI. 
 
 ## Introduction
 
