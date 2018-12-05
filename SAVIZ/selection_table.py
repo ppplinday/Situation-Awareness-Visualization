@@ -25,6 +25,8 @@ class selection_table:
 		# create columns
 		columns = []
 		for i in range(len(attr_name)):
+			if attr_name[i] == 'time_value':
+				continue
 			columns.append(TableColumn(field=attr_name[i], title=attr_name[i]))
 		
 		self.table = DataTable(source=self.source_table, columns=columns, width=1400, height=700)

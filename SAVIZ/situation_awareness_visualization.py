@@ -7,21 +7,24 @@ This is situation awareness visualization(SAVIZ) version 1
 import os
 import numpy as np
 import pandas as pd
+from datetime import datetime
 
 from bokeh.layouts import row, column, widgetbox
 from bokeh.models import CustomJS, ColumnDataSource
 from bokeh.plotting import figure, show, curdoc
-from bokeh.models.widgets import DataTable, DateFormatter, TableColumn, Select, CheckboxGroup, RangeSlider
+from bokeh.models.widgets import DataTable, DateFormatter, TableColumn, Select, CheckboxGroup, RangeSlider, DateRangeSlider
 
 from SAVIZ.selection_table import selection_table
 from SAVIZ.tooltips import tooltips
 
 class saviz_visualization:
 
-	def __init__(self, pd_data, has_type=True):
+	def __init__(self, pd_data, has_type=True, has_time=False, timeRange=[0,1]):
+		
 		self.has_type = has_type
 		self.original_data = pd_data
-		
+		self.has_time = has_time
+		self.timeRange = timeRange
 
 		# init colors
 		self.colors = ["red", "green", "blue", "pink", "orange", "tan", "black", "teal", "darkviolet", "cyan", "gold", "peru"]
@@ -80,13 +83,25 @@ class saviz_visualization:
 		
 		data = self.original_data
 		
-		selected = data[
-			(data['x'] >= self.x_rangeslider.value[0]) &
-			(data['x'] <= self.x_rangeslider.value[1]) &
-			(data['y'] >= self.y_rangeslider.value[0]) &
-			(data['y'] <= self.y_rangeslider.value[1])
-		]
+		if self.has_time == True:
+			vtime = self.time_rangeslider.value_as_datetime
+			selected = data[
+				(data['x'] >= self.x_rangeslider.value[0]) &
+				(data['x'] <= self.x_rangeslider.value[1]) &
+				(data['y'] >= self.y_rangeslider.value[0]) &
+				(data['y'] <= self.y_rangeslider.value[1]) &
+				(data['time_value'] >= vtime[0]) &
+				(data['time_value'] <= vtime[1])
+			]
+		else:
+			selected = data[
+				(data['x'] >= self.x_rangeslider.value[0]) &
+				(data['x'] <= self.x_rangeslider.value[1]) &
+				(data['y'] >= self.y_rangeslider.value[0]) &
+				(data['y'] <= self.y_rangeslider.value[1])
+			]
 		
+
 		if self.has_type == True:
 			dic = {}
 			for i in self.label_checkbox.active:
@@ -129,12 +144,24 @@ class saviz_visualization:
 		self.x_rangeslider = RangeSlider(value=[-100, 150], start=-100, end=150, step=1, title="x")
 		self.y_rangeslider = RangeSlider(value=[-100, 100], start=-100, end=100, step=1, title="y")
 
+		if self.has_time == True:
+			self.time_rangeslider = DateRangeSlider(format="%Y-%b-%d %H:%M", value=[self.timeRange[0], self.timeRange[1]], start=self.timeRange[0], end=self.timeRange[1], step=10, title="time")
+
+		controls = []
 		if self.has_type == True:
-			widgets = widgetbox(self.label_checkbox, self.x_rangeslider, self.y_rangeslider, width=700, height=700)
-			controls = [self.label_checkbox, self.x_rangeslider, self.y_rangeslider]
-		else:
-			widgets = widgetbox(self.x_rangeslider, self.y_rangeslider, width=700, height=700)
-			controls = [self.x_rangeslider, self.y_rangeslider]
+			controls.append(self.label_checkbox)
+		controls.append(self.x_rangeslider)
+		controls.append(self.y_rangeslider)
+		if self.has_time == True:
+			controls.append(self.time_rangeslider)
+		widgets = widgetbox(controls, width=700, height=700)
+
+		# if self.has_type == True:
+		# 	widgets = widgetbox(self.label_checkbox, self.x_rangeslider, self.y_rangeslider, width=700, height=700)
+		# 	controls = [self.label_checkbox, self.x_rangeslider, self.y_rangeslider]
+		# else:
+		# 	widgets = widgetbox(self.x_rangeslider, self.y_rangeslider, width=700, height=700)
+		# 	controls = [self.x_rangeslider, self.y_rangeslider]
 
 		for control in controls:
 			
@@ -168,4 +195,4 @@ class saviz_visualization:
 			self.tp.set_attr(arr)
 		self.tooltip = self.tp.build_tooptips()
 		print(self.tooltip)
-	
+		print("xxx")

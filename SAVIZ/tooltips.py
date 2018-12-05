@@ -6,6 +6,8 @@ class tooltips:
 		self.ori_attr = attr
 		for i in attr:
 			self.tips[i] = True
+		if 'time_value' in self.tips:
+			self.tips['time_value'] = False
 
 	def set_attr(self, attr):
 

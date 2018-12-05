@@ -3,5 +3,9 @@
 "y": "y",
 "has_type": true,
 "type": "type",
-"body": "body"
+"body": "body",
+"has_time": false,
+"time": "time",
+"begin_point_baseOfTime" : 100,
+"number_point_baseOfTime" : 200
 }
