@@ -34,7 +34,8 @@ if "time_value" in data:
 # convert the json to dataframe
 
 pd_data = pd.DataFrame.from_dict(data)
-pd_data['time_value'] = pd.to_datetime(pd_data['time_value'])
+if "time_value" in data:
+	pd_data['time_value'] = pd.to_datetime(pd_data['time_value'])
 sav = saviz.saviz_visualization(pd_data, has_type, has_time, timeRange)
 
 # build tooltips

@@ -168,8 +168,8 @@ if __name__ == "__main__":
 				config_dict['time_max'] = max(config_dict['time_max'], final_res["time_value"][i])
 				# print(final_res["time_value"][i], config_dict['time_min'], config_dict['time_max'])
 			tempfile.write(json.dumps(final_res) + '\n')
-		else:
-			tempfile.write(json.dumps(res) + '\n')
+	else:
+		tempfile.write(json.dumps(res) + '\n')
 		
 
 	# store in a tempconfig file
