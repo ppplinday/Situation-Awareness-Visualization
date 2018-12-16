@@ -88,3 +88,10 @@ The version of bokeh we use is 0.13.0
 * Selection table only supports to show all the attributes of input data.
 * Implment a bash from for this project in order to use this framework conveniently.
 * It supports tiptool function to show all the attribute
+
+### V 2.0
+
+* In the title, it can show how many points are displayed in the figure right now.
+* Implemented a tooltip class. User can use set_tooltips function to set the tooltips by themselves. They can choose what attribute they want to see.
+* Add color tap in the checkbox labels.
+* Add time function and support choose the start point and point number.
