@@ -22,12 +22,18 @@ For config json file, it has 5 attributes in this file.
 "y": "y",
 "has_type": true,
 "type": "type",
-"body": "body"
+"body": "body",
+"has_time": false,
+"time": "time",
+"begin_point_baseOfTime" : 100,
+"number_point_baseOfTime" : 200
 }
 ```
 
-key (x,y,type,body) is corresponding to the relevant name in the data json file
+key (x,y,type,body,time) is corresponding to the relevant name in the data json file.
 key (has_type) is whether the data json need to consider type or not, we do not care about the value from type.
+key (has_time) is whether the data json need to consider time or not.
+key (begin_point_baseOfTime, number_point_baseOfTime) mean that we will sort the data according to the time and we can choose to display the data the number "begin_point_baseOfTime" and total number of point is "number_point_baseOfTime".
 
 Then git clone this project:
 ```
@@ -46,6 +52,9 @@ In here, we provide iris sample data -- simple_iris.json. And also we provide si
 
 The result from simple_iris.json
 ![simple_iris_result.png](resources/simple_iris_result.png)
+
+The example with time:
+![simple_iris_result.png](resources/simple_with_time.png)
 
 ## Requirements
 
